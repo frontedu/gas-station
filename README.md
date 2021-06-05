@@ -1,7 +1,7 @@
 # lsw2
 Filling Station @ IFTM - 2nd JavaScript project
 
-![](Header.png)
+![Project interface](header.png)
 
 ## General infos
 * [read original proposal (coming soon)](#general-infos)
