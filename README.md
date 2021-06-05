@@ -2,10 +2,11 @@
 2nd JavaScript project for Instituto Federal do Triângulo Mineiro @ Brazil
 
 ## General infos
-* [read original proposal (pt-BR)](#general-infos)
-* [see the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/IFTM-Avalia%C3%A7%C3%A3o-2)
+* [📃 Read original proposal (pt-BR)](#original-proposal)
+* [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/IFTM-Avalia%C3%A7%C3%A3o-2)
+* [📧 Contact-me :)](mailto:eu@frontedu.me)
 
-## 🇧🇷 Original proposal 
+## Original proposal
 ### Atividade Avaliativa II
 Esta é a proposta de segunda avaliação da disciplina de Linguagem de Script para WEB. Ela deve ser realizada individualmente. 
 O valor total desta avaliação é de 30 pontos. Não serão admitidos códigos idênticos ou com indícios de cópia entre os integrantes da turma. Esta avaliação ocorrerá em duas etapas:
