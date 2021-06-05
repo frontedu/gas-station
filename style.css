@@ -73,18 +73,16 @@ strong {
   color: var(--main);
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
   display: inline-block;
   margin: 80px 0 0 18%;
 }
 
-
-label{
+label {
   display: inline;
 }
-
 
 #quant-gas {
   color: var(--green);
@@ -202,7 +200,7 @@ label{
   padding: 0 0 0 15px;
 }
 
-#v-litro{
+#v-litro {
   cursor: not-allowed;
 }
 
@@ -342,8 +340,6 @@ input[type="radio"] {
   .payments {
     margin-left: 10%;
   }
-
-
 }
 
 @media screen and (max-width: 1140px) {

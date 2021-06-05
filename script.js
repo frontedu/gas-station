@@ -1,15 +1,15 @@
-//QUANT & VALORES 
-  //SUBSTITUIVEIS
-  const gasPrice = 5.89; //CHECKED
-  const etaPrice = 3.99;
-  var gasVol = 1000;
-  var etaVol = 1000;
-  //SEMPRE INICIA EM 0
-  var faturamento = 0;
-  var volume = 0;
-  //VALOR FIXO
-  let gasFixed = gasVol
-  let etaFixed = etaVol
+//QUANT & VALORES
+///SUBSTITUIVEIS
+const gasPrice = 5.89; //CHECKED
+const etaPrice = 3.99;
+var gasVol = 1000;
+var etaVol = 1000;
+///SEMPRE INICIA EM 0
+var faturamento = 0;
+var volume = 0;
+///VALOR FIXO
+let gasFixed = gasVol;
+let etaFixed = etaVol;
 
 //QUANTIDADE REAL DA BOMBA
 const bombaGas = document.getElementById("quant-gas");
@@ -72,18 +72,16 @@ submit.addEventListener("click", function (event) {
 /////////////////
 //PREVIEW VALUE//
 /////////////////
-function preview(){
+function preview() {
   var input = document.getElementById("quant-litros").value;
   var FuelPreview = form.select.value;
-  var totalPreview = FuelPreview == "Gasolina" ? gasPrice * input : etaPrice * input;
+  var totalPreview =
+    FuelPreview == "Gasolina" ? gasPrice * input : etaPrice * input;
   var Vol = FuelPreview == "Gasolina" ? gasVol : etaVol;
 
-  if(input == 0)
-  submit.value = "Confirmar"
-  else if(input > Vol)
-  submit.value = "Indisponível"
-  else
-  submit.value = "Confirmar" + " (R$ " + totalPreview.toFixed(2) + ")"
+  if (input <= 0) submit.value = "Confirmar";
+  else if (input > Vol) submit.value = "Indisponível";
+  else submit.value = "Confirmar" + " (R$ " + totalPreview.toFixed(2) + ")";
 }
 
 /////////////////
@@ -92,7 +90,7 @@ function preview(){
 function paragraph(getp, linep) {
   if (getp.lastElementChild.textContent == "Nenhuma compra efetuada.")
     getp.lastElementChild.textContent = linep;
-    else {
+  else {
     const newp = document.createElement("p");
     newp.innerText = linep;
     getp.prepend(newp);
@@ -125,38 +123,35 @@ function geralBomba(bombaGas, bombaEta) {
 //////////////////
 //COLOR GASOLINA//
 //////////////////
-function changeGasColor(gasVol){
-  if(gasVol > (gasFixed * 0.5))
-  document.querySelector("#quant-gas").style.color = "var(--green)"
-  else if(gasVol <= (gasFixed * 0.5) && gasVol > (gasFixed * 0.1))
-  document.querySelector("#quant-gas").style.color = "var(--orange)"
-  else if(gasVol <= (gasFixed * 0.1) && gasVol > 0)
-  document.querySelector("#quant-gas").style.color = "var(--red)"
-  else if(gasVol == 0)
-  document.querySelector("#quant-gas").style.color = "var(--gray)"
+function changeGasColor(gasVol) {
+  if (gasVol > gasFixed * 0.5)
+    document.querySelector("#quant-gas").style.color = "var(--green)";
+  else if (gasVol <= gasFixed * 0.5 && gasVol > gasFixed * 0.1)
+    document.querySelector("#quant-gas").style.color = "var(--orange)";
+  else if (gasVol <= gasFixed * 0.1 && gasVol > 0)
+    document.querySelector("#quant-gas").style.color = "var(--red)";
+  else if (gasVol == 0)
+    document.querySelector("#quant-gas").style.color = "var(--gray)";
 }
-
 
 ////////////////
 //COLOR ETANOL//
 ////////////////
-function changeEtaColor(etaVol){
-  if(etaVol > (etaFixed * 0.5))
-  document.querySelector("#quant-eta").style.color = "var(--green)"
-  else if(etaVol <= (etaFixed * 0.5) && etaVol > (etaFixed * 0.1))
-  document.querySelector("#quant-eta").style.color = "var(--orange)"
-  else if(etaVol <= (etaFixed * 0.1) && etaVol > 0)
-  document.querySelector("#quant-eta").style.color = "var(--red)"
-  else if(etaVol == 0)
-  document.querySelector("#quant-eta").style.color = "var(--gray)"
+function changeEtaColor(etaVol) {
+  if (etaVol > etaFixed * 0.5)
+    document.querySelector("#quant-eta").style.color = "var(--green)";
+  else if (etaVol <= etaFixed * 0.5 && etaVol > etaFixed * 0.1)
+    document.querySelector("#quant-eta").style.color = "var(--orange)";
+  else if (etaVol <= etaFixed * 0.1 && etaVol > 0)
+    document.querySelector("#quant-eta").style.color = "var(--red)";
+  else if (etaVol == 0)
+    document.querySelector("#quant-eta").style.color = "var(--gray)";
 }
-
 
 ////////////////////
 //IF RADIO CHECKED//
 ////////////////////
-function undoValue()
-{
+function undoValue() {
   form.quant.value = null;
   preview();
 }
