@@ -6,8 +6,6 @@
 * [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/IFTM-Avalia%C3%A7%C3%A3o-2)
 * [📧 Contact-me :)](mailto:eu@frontedu.me)
 
-![Preview App](preview.png)
-
 ## Original proposal
 ### Atividade Avaliativa II
 Esta é a proposta de segunda avaliação da disciplina de Linguagem de Script para WEB. Ela deve ser realizada individualmente. 
