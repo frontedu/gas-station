@@ -22,7 +22,7 @@ price.value = gasPrice;
 selectFuel();
 
 // GET SUBMIT CLICK (PARA O EVENT LISTENER)
-const submit = document.getElementById("compra");
+const submit = document.getElementById("vendido");
 
 /////////////////
 //MAIN FUNCTION//
@@ -76,7 +76,7 @@ function preview() {
   var input = document.getElementById("quant-litros").value;
   var FuelPreview = form.select.value;
   var totalPreview =
-    FuelPreview == "Gasolina" ? gasPrice * input : etaPrice * input;
+    FuelPreview == "Gasolina" ? gasPrice * parseInt(input) : etaPrice * parseInt(input);
   var Vol = FuelPreview == "Gasolina" ? gasVol : etaVol;
 
   if (input <= 0) submit.value = "Confirmar";
@@ -88,7 +88,7 @@ function preview() {
 //ADD PARAGRAPH//
 /////////////////
 function paragraph(getp, linep) {
-  if (getp.lastElementChild.textContent == "Nenhuma compra efetuada.")
+  if (getp.lastElementChild.textContent == "Nenhuma venda efetuada.")
     getp.lastElementChild.textContent = linep;
   else {
     const newp = document.createElement("p");
