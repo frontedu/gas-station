@@ -2,6 +2,7 @@
 
 :root {
   --main: #adff00;
+  --bg: #000;
   --light: #f2f2f7;
   --dark: #2e2e2e;
   --darkblack: #191919;
@@ -20,9 +21,19 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--bg);
   color: var(--light);
   font-family: "Roboto", sans-serif;
+}
+
+main {
+  grid-area: purchase;
+  margin-left: 36%;
+}
+
+aside {
+  grid-area: overview;
+  margin-left: 5%;
 }
 
 h1 {
@@ -84,19 +95,11 @@ label {
   display: inline;
 }
 
-#quant-gas {
-  color: var(--green);
-}
-
-#quant-eta {
-  color: var(--green);
-}
-
 .main-color {
   color: var(--main);
 }
 
-.sec-2 {
+.section-2 {
   margin-bottom: 30px;
 }
 
@@ -190,24 +193,6 @@ label {
   width: 220px;
 }
 
-#v-litro,
-#quant-litros {
-  height: 45px;
-  background-color: var(--darkblack);
-  width: 150px;
-  font-size: 18px;
-  border: none;
-  padding: 0 0 0 15px;
-}
-
-#v-litro {
-  cursor: not-allowed;
-}
-
-#quant-litros {
-  color: var(--light);
-}
-
 .add-card {
   margin-top: 30px;
   width: 500px;
@@ -226,7 +211,37 @@ label {
   margin-right: 15%;
 }
 
-/*  GRID PANEL   */
+.gas-mr {
+  margin-left: 5px;
+}
+
+#valor-litro,
+#quant-litros {
+  height: 45px;
+  background-color: var(--darkblack);
+  width: 150px;
+  font-size: 18px;
+  border: none;
+  padding: 0 0 0 15px;
+}
+
+#valor-litro {
+  cursor: not-allowed;
+}
+
+#quant-litros {
+  color: var(--light);
+}
+
+#quant-gas {
+  color: var(--green);
+}
+
+#quant-eta {
+  color: var(--green);
+}
+
+/* DIVISOR MAIN (ESQUERDA) & ASIDE (DIREITA) */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -238,16 +253,7 @@ label {
     "purchase purchase overview overview";
 }
 
-.purchase {
-  grid-area: purchase;
-  margin-left: 36%;
-}
-
-.overview {
-  grid-area: overview;
-  margin-left: 5%;
-}
-
+/* BOTÕES GAS-ETA */
 .wrapper {
   display: inline-flex;
   height: 55px;
@@ -293,14 +299,9 @@ label {
   transition: all 0.3s ease;
 }
 
-.gas-mr {
-  margin-left: 5px;
-}
-
 input[type="radio"] {
   display: none;
 }
-
 
 #option-1:checked:checked ~ .option-1,
 #option-2:checked:checked ~ .option-2 {
@@ -326,9 +327,10 @@ input[type="radio"] {
 
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span {
-  color: black;
+  color: var(--black);
 }
 
+/* NORMALIZAÇÃO ATÉ 1140PX */
 @media screen and (max-width: 1470px) {
   a {
     margin-left: 10%;
@@ -339,21 +341,16 @@ input[type="radio"] {
     width: 500px;
   }
 
-  .purchase {
+  main {
     margin-left: 20%;
   }
 
-  .overview {
-    margin-left: 10%;
-  }
-
-  .payments {
+  aside {
     margin-left: 10%;
   }
 }
 
+/* NORMALIZAÇÃO ABAIXO DE 1140PX */
 @media screen and (max-width: 1140px) {
-  /*
-  LARGURA DINÂMICA EM CELULARES
-  */
+  /* AGUARDANDO COMMITS */
 }

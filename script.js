@@ -1,94 +1,100 @@
-//QUANT & VALORES
-///SUBSTITUIVEIS
-const gasPrice = 5.89; //CHECKED
-const etaPrice = 3.99;
-var gasVol = 1000;
-var etaVol = 1000;
-///SEMPRE INICIA EM 0
-var faturamento = 0;
-var volume = 0;
-///VALOR FIXO
-let gasFixed = gasVol;
-let etaFixed = etaVol;
+//VALORES MUTÁVEIS
+const 
+  //PREÇO (REAIS)
+  gasPrice = 5.89, //GAS
+  ethPrice = 3.99; //ETA
+let 
+  //VOLUME DISPONÍVEL (LITROS)
+  gasVol = 1000, //GAS
+  ethVol = 1000; //ETA
+
+///FATURAMENTO E VOLUME INICIAL
+let profit = 0, volume = 0;
+
+///VOLUME FIXO
+const gasFixed = gasVol, ethFixed = ethVol;
 
 //QUANTIDADE REAL DA BOMBA
-const bombaGas = document.getElementById("quant-gas");
-const bombaEta = document.getElementById("quant-eta");
-geralBomba(bombaGas, bombaEta);
+const gasPump = document.getElementById("quant-gas");
+const ethPump = document.getElementById("quant-eta");
+changePump(gasPump, ethPump);
 
-// ALTERAR VALOR/LITRO
-const price = document.getElementById("v-litro");
+//ALTERAR VALOR/LITRO
+const price = document.getElementById("valor-litro");
 price.value = gasPrice;
 selectFuel();
 
-// GET SUBMIT CLICK (PARA O EVENT LISTENER)
-const submit = document.getElementById("vendido");
+//GET SUBMIT CLICK (PARA O EVENT LISTENER)
+const submit = form.vendido;
 
-/////////////////
-//MAIN FUNCTION//
-/////////////////
+////////////////////
+//FUNÇÃO PRINCIPAL//
+////////////////////
 submit.addEventListener("click", function (event) {
   event.preventDefault();
 
   //CALC TOTAL
-  var Fuel = form.select.value;
-  var Liters = form.quant.value;
-  Liters = ~~Liters;
+  let fuelType = form.select.value;
+  let Liters = ~~form.quant.value;
   if (Liters < 1) return;
-  var total = Fuel == "Gasolina" ? gasPrice * Liters : etaPrice * Liters;
+  const total = fuelType == "Gasolina" ?
+  gasPrice * Liters : ethPrice * Liters;
 
-  // QUANTIDADE BOMBA GAS/ETA
-  if (Fuel == "Gasolina") {
+  //QUANTIDADE BOMBA GAS/ETH
+  if (fuelType == "Gasolina") {
     if (gasVol <= 0 || Liters > gasVol) return;
     gasVol -= Liters;
-    bombaGas.textContent = gasVol;
+    gasPump.textContent = gasVol;
     changeGasColor(gasVol);
   } else {
-    if (etaVol <= 0 || Liters > etaVol) return;
-    etaVol -= Liters;
-    bombaEta.textContent = etaVol;
-    changeEtaColor(etaVol);
+    if (ethVol <= 0 || Liters > ethVol) return;
+    ethVol -= Liters;
+    ethPump.textContent = ethVol;
+    changeEthColor(ethVol);
   }
 
-  // VOLUME E FATURAMENTO
-  var newFat = document.getElementById("faturamento");
-  faturamento += Number(total);
-  newFat.textContent = faturamento.toFixed(2);
+  //VOLUME E FATURAMENTO
+  const newBilling = document.getElementById("faturamento");
+  profit += Number(total);
+  newBilling.textContent = profit.toFixed(2);
 
   volume += Liters;
-  var newVol = document.getElementById("volume");
+  const newVol = document.getElementById("volume");
   newVol.textContent = volume;
 
   //EXIBIR COMPRA EXECUTADA
   const getp = document.getElementById("purchases");
-  var linep = Fuel + " — " + Liters + "L" + " — " + "R$ " + total.toFixed(2);
+  let linep =
+    fuelType + " — " + Liters + "L" + " — " + "R$ " + total.toFixed(2);
   paragraph(getp, linep);
 
-  //RESETAR CAMPOS QUANTIDADE/L E SUBMIT DO HTML
+  //RESETA INPUT QUANTIDADE/L E SUBMIT
   form.quant.value = null;
   preview();
 });
 
-/////////////////
-//PREVIEW VALUE//
-/////////////////
+////////////////////////
+//PRÉ-VIZUALIZAR PREÇO//
+////////////////////////
 function preview() {
-  var input = document.getElementById("quant-litros").value;
-  var FuelPreview = form.select.value;
-  var totalPreview =
-    FuelPreview == "Gasolina" ? gasPrice * parseInt(input) : etaPrice * parseInt(input);
-  var Vol = FuelPreview == "Gasolina" ? gasVol : etaVol;
+  const input = ~~form.quant.value;
+  const fuelTypePreview = form.select.value;
+  let totalPreview = fuelTypePreview == "Gasolina" ?
+  gasPrice * input : ethPrice * input;
+  let Vol = fuelTypePreview == "Gasolina" ?
+  gasVol : ethVol;
 
   if (input <= 0) submit.value = "Confirmar";
   else if (input > Vol) submit.value = "Indisponível";
   else submit.value = "Confirmar" + " (R$ " + totalPreview.toFixed(2) + ")";
 }
 
-/////////////////
-//ADD PARAGRAPH//
-/////////////////
+//////////////////////////
+//ADICIONA INFO DA VENDA//
+//////////////////////////
+const dotVerify = /\.$/;
 function paragraph(getp, linep) {
-  if (getp.lastElementChild.textContent == "Nenhuma venda efetuada.")
+  if (dotVerify.test(getp.lastElementChild.textContent) == true)
     getp.lastElementChild.textContent = linep;
   else {
     const newp = document.createElement("p");
@@ -97,31 +103,31 @@ function paragraph(getp, linep) {
   }
 }
 
-///////////////
-//VALOR-LITRO//
-///////////////
+///////////////////
+//PREÇO POR LITRO//
+///////////////////
 function selectFuel() {
   const gasSelect = document.getElementById("option-1");
   gasSelect.onclick = function () {
     price.value = gasPrice;
   };
 
-  const etaSelect = document.getElementById("option-2");
-  etaSelect.onclick = function () {
-    price.value = etaPrice;
+  const ethSelect = document.getElementById("option-2");
+  ethSelect.onclick = function () {
+    price.value = ethPrice;
   };
 }
 
-///////////////
-//TOTAL BOMBA//
-///////////////
-function geralBomba(bombaGas, bombaEta) {
-  bombaGas.textContent = gasVol;
-  bombaEta.textContent = etaVol;
+///////////////////////
+//NOVO TOTAL DA BOMBA//
+///////////////////////
+function changePump(gasPump, ethPump) {
+  gasPump.textContent = gasVol;
+  ethPump.textContent = ethVol;
 }
 
 //////////////////
-//COLOR GASOLINA//
+//COR QUANT. GAS//
 //////////////////
 function changeGasColor(gasVol) {
   if (gasVol > gasFixed * 0.5)
@@ -134,23 +140,23 @@ function changeGasColor(gasVol) {
     document.querySelector("#quant-gas").style.color = "var(--gray)";
 }
 
-////////////////
-//COLOR ETANOL//
-////////////////
-function changeEtaColor(etaVol) {
-  if (etaVol > etaFixed * 0.5)
+//////////////////
+//COR QUANT. ETH//
+//////////////////
+function changeEthColor(ethVol) {
+  if (ethVol > ethFixed * 0.5)
     document.querySelector("#quant-eta").style.color = "var(--green)";
-  else if (etaVol <= etaFixed * 0.5 && etaVol > etaFixed * 0.1)
+  else if (ethVol <= ethFixed * 0.5 && ethVol > ethFixed * 0.1)
     document.querySelector("#quant-eta").style.color = "var(--orange)";
-  else if (etaVol <= etaFixed * 0.1 && etaVol > 0)
+  else if (ethVol <= ethFixed * 0.1 && ethVol > 0)
     document.querySelector("#quant-eta").style.color = "var(--red)";
-  else if (etaVol == 0)
+  else if (ethVol == 0)
     document.querySelector("#quant-eta").style.color = "var(--gray)";
 }
 
-////////////////////
-//IF RADIO CHECKED//
-////////////////////
+/////////////////
+//RESETA INPUTS//
+/////////////////
 function undoValue() {
   form.quant.value = null;
   preview();
