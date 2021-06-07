@@ -2,27 +2,29 @@
 2nd JavaScript project for Instituto Federal do Triângulo Mineiro @ Brazil
 
 ## General infos
-* [📧 Changeable Values](#usage)
+* [📐 Usage – Changeable Values](#usage)
 * [📃 Project proposal (pt-BR)](#project-proposal)
 * [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/)
-* [📧 Contact-me :)](https://t.me/frontedu/)
 
 ## Usage
 The values that should be replaced as you demand are:
 
-Fuel Price | Fuel Volume
----------- | -----------
-gasPrice | gasVol
-ethPrice | ethVol
+Fuel Type | Price (R$) | Volume (L)
+--------- | ---------- | ----------
+Gasoline  | 5.89       | 1000
+Ethanol   | 3.99       | 1000
 
 as you can see in:
 ```javascript
-const
-    gasPrice = 5.89, 
-    ethPrice = 3.99;
-let 
-    gasVol = 1000,
-    ethVol = 1000;
+const price = {
+  gas: 5.89,
+  eth: 3.99,
+};
+
+let vol = {
+  gas: 1000,
+  eth: 1000,
+};
 ```
 
 ## Project proposal

@@ -7,12 +7,12 @@
   --dark: #2e2e2e;
   --darkblack: #191919;
   --black: #121212;
-  --darkblue: rgba(0, 240, 255, 0.1);
-  --darkyellow: rgba(255, 245, 0, 0.1);
   --green: #adff00;
   --orange: #ff9500;
   --red: #ff3b30;
   --gray: #c7c7cc;
+  --darkblue: rgba(0, 240, 255, 0.1);
+  --darkyellow: rgba(255, 245, 0, 0.1);
 }
 
 * {
@@ -213,6 +213,10 @@ label {
 
 .gas-mr {
   margin-left: 5px;
+}
+
+::placeholder{
+  color: var(--gray);
 }
 
 #valor-litro,

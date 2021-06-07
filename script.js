@@ -1,18 +1,19 @@
 //VALORES MUTÁVEIS
-const 
-  //PREÇO (REAIS)
-  gasPrice = 5.89, //GAS
-  ethPrice = 3.99; //ETA
-let 
-  //VOLUME DISPONÍVEL (LITROS)
-  gasVol = 1000, //GAS
-  ethVol = 1000; //ETA
+const price = {
+  gas: 5.89, //PREÇO GAS
+  eth: 3.99, //PREÇO ETA
+};
+
+let vol = {
+  gas: 1000, //VOLUME GAS
+  eth: 1000, //VOLUME ETA
+};
 
 ///FATURAMENTO E VOLUME INICIAL
 let profit = 0, volume = 0;
 
 ///VOLUME FIXO
-const gasFixed = gasVol, ethFixed = ethVol;
+const gasFixed = vol.gas, ethFixed = vol.eth;
 
 //QUANTIDADE REAL DA BOMBA
 const gasPump = document.getElementById("quant-gas");
@@ -20,8 +21,8 @@ const ethPump = document.getElementById("quant-eta");
 changePump(gasPump, ethPump);
 
 //ALTERAR VALOR/LITRO
-const price = document.getElementById("valor-litro");
-price.value = gasPrice;
+const checked = document.getElementById("valor-litro");
+checked.value = price.gas;
 selectFuel();
 
 //GET SUBMIT CLICK (PARA O EVENT LISTENER)
@@ -38,19 +39,19 @@ submit.addEventListener("click", function (event) {
   let Liters = ~~form.quant.value;
   if (Liters < 1) return;
   const total = fuelType == "Gasolina" ?
-  gasPrice * Liters : ethPrice * Liters;
+  price.gas * Liters : price.eth * Liters;
 
   //QUANTIDADE BOMBA GAS/ETH
   if (fuelType == "Gasolina") {
-    if (gasVol <= 0 || Liters > gasVol) return;
-    gasVol -= Liters;
-    gasPump.textContent = gasVol;
-    changeGasColor(gasVol);
+    if (vol.gas <= 0 || Liters > vol.gas) return;
+    vol.gas -= Liters;
+    gasPump.textContent = vol.gas;
+    changeGasColor(vol.gas);
   } else {
-    if (ethVol <= 0 || Liters > ethVol) return;
-    ethVol -= Liters;
-    ethPump.textContent = ethVol;
-    changeEthColor(ethVol);
+    if (vol.eth <= 0 || Liters > vol.eth) return;
+    vol.eth -= Liters;
+    ethPump.textContent = vol.eth;
+    changeEthColor(vol.eth);
   }
 
   //VOLUME E FATURAMENTO
@@ -80,9 +81,9 @@ function preview() {
   const input = ~~form.quant.value;
   const fuelTypePreview = form.select.value;
   let totalPreview = fuelTypePreview == "Gasolina" ?
-  gasPrice * input : ethPrice * input;
+  price.gas * input : price.eth * input;
   let Vol = fuelTypePreview == "Gasolina" ?
-  gasVol : ethVol;
+  vol.gas : vol.eth;
 
   if (input <= 0) submit.value = "Confirmar";
   else if (input > Vol) submit.value = "Indisponível";
@@ -92,9 +93,8 @@ function preview() {
 //////////////////////////
 //ADICIONA INFO DA VENDA//
 //////////////////////////
-const dotVerify = /\.$/;
 function paragraph(getp, linep) {
-  if (dotVerify.test(getp.lastElementChild.textContent) == true)
+  if (/\.$/.test(getp.lastElementChild.textContent) == true)
     getp.lastElementChild.textContent = linep;
   else {
     const newp = document.createElement("p");
@@ -109,12 +109,12 @@ function paragraph(getp, linep) {
 function selectFuel() {
   const gasSelect = document.getElementById("option-1");
   gasSelect.onclick = function () {
-    price.value = gasPrice;
+    checked.value = price.gas;
   };
 
   const ethSelect = document.getElementById("option-2");
   ethSelect.onclick = function () {
-    price.value = ethPrice;
+    checked.value = price.eth;
   };
 }
 
@@ -122,35 +122,35 @@ function selectFuel() {
 //NOVO TOTAL DA BOMBA//
 ///////////////////////
 function changePump(gasPump, ethPump) {
-  gasPump.textContent = gasVol;
-  ethPump.textContent = ethVol;
+  gasPump.textContent = vol.gas;
+  ethPump.textContent = vol.eth;
 }
 
 //////////////////
 //COR QUANT. GAS//
 //////////////////
-function changeGasColor(gasVol) {
-  if (gasVol > gasFixed * 0.5)
+function changeGasColor(gas) {
+  if (gas > gasFixed * 0.5)
     document.querySelector("#quant-gas").style.color = "var(--green)";
-  else if (gasVol <= gasFixed * 0.5 && gasVol > gasFixed * 0.1)
+  else if (gas <= gasFixed * 0.5 && gas > gasFixed * 0.1)
     document.querySelector("#quant-gas").style.color = "var(--orange)";
-  else if (gasVol <= gasFixed * 0.1 && gasVol > 0)
+  else if (gas <= gasFixed * 0.1 && gas > 0)
     document.querySelector("#quant-gas").style.color = "var(--red)";
-  else if (gasVol == 0)
+  else if (gas == 0)
     document.querySelector("#quant-gas").style.color = "var(--gray)";
 }
 
 //////////////////
 //COR QUANT. ETH//
 //////////////////
-function changeEthColor(ethVol) {
-  if (ethVol > ethFixed * 0.5)
+function changeEthColor(eth) {
+  if (eth > ethFixed * 0.5)
     document.querySelector("#quant-eta").style.color = "var(--green)";
-  else if (ethVol <= ethFixed * 0.5 && ethVol > ethFixed * 0.1)
+  else if (eth <= ethFixed * 0.5 && eth > ethFixed * 0.1)
     document.querySelector("#quant-eta").style.color = "var(--orange)";
-  else if (ethVol <= ethFixed * 0.1 && ethVol > 0)
+  else if (eth <= ethFixed * 0.1 && eth > 0)
     document.querySelector("#quant-eta").style.color = "var(--red)";
-  else if (ethVol == 0)
+  else if (eth == 0)
     document.querySelector("#quant-eta").style.color = "var(--gray)";
 }
 
