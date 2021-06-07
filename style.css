@@ -95,6 +95,18 @@ label {
   display: inline;
 }
 
+/* DIVISOR MAIN (ESQUERDA) & ASIDE (DIREITA) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "purchase purchase overview overview"
+    "purchase purchase overview overview"
+    "purchase purchase overview overview";
+}
+
 .main-color {
   color: var(--main);
 }
@@ -103,15 +115,15 @@ label {
   margin-bottom: 30px;
 }
 
-.h3-20mt {
+.h3-mtmb {
   margin: 20px 0 16px 0;
 }
 
-.ml-100 {
+.ml-135 {
   margin-left: 135px;
 }
 
-.ml-45 {
+.ml-50 {
   margin-left: 50px;
 }
 
@@ -186,10 +198,10 @@ label {
   cursor: pointer;
 }
 
-.card-f {
+.card-fat {
   width: 260px;
 }
-.card-v {
+.card-vol {
   width: 220px;
 }
 
@@ -211,7 +223,7 @@ label {
   margin-right: 15%;
 }
 
-.gas-mr {
+.gas-ml {
   margin-left: 5px;
 }
 
@@ -219,45 +231,7 @@ label {
   color: var(--gray);
 }
 
-#valor-litro,
-#quant-litros {
-  height: 45px;
-  background-color: var(--darkblack);
-  width: 150px;
-  font-size: 18px;
-  border: none;
-  padding: 0 0 0 15px;
-}
-
-#valor-litro {
-  cursor: not-allowed;
-}
-
-#quant-litros {
-  color: var(--light);
-}
-
-#quant-gas {
-  color: var(--green);
-}
-
-#quant-eta {
-  color: var(--green);
-}
-
-/* DIVISOR MAIN (ESQUERDA) & ASIDE (DIREITA) */
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "purchase purchase overview overview"
-    "purchase purchase overview overview"
-    "purchase purchase overview overview";
-}
-
-/* BOTÕES GAS-ETA */
+/* BOTÕES GAS & ETA */
 .wrapper {
   display: inline-flex;
   height: 55px;
@@ -303,8 +277,9 @@ label {
   transition: all 0.3s ease;
 }
 
-input[type="radio"] {
-  display: none;
+.wrapper .option span {
+  font-size: 20px;
+  color: var(--gray);
 }
 
 #option-1:checked:checked ~ .option-1,
@@ -324,14 +299,39 @@ input[type="radio"] {
   transform: scale(1);
 }
 
-.wrapper .option span {
-  font-size: 20px;
-  color: var(--gray);
-}
-
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span {
   color: var(--black);
+}
+
+#valor-litro,
+#quant-litros {
+  height: 45px;
+  background-color: var(--darkblack);
+  width: 150px;
+  font-size: 18px;
+  border: none;
+  padding: 0 0 0 15px;
+}
+
+#valor-litro {
+  cursor: not-allowed;
+}
+
+#quant-litros {
+  color: var(--light);
+}
+
+#quant-gas {
+  color: var(--green);
+}
+
+#quant-eta {
+  color: var(--green);
+}
+
+input[type="radio"] {
+  display: none;
 }
 
 /* NORMALIZAÇÃO ATÉ 1140PX */

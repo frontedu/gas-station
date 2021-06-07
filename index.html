@@ -33,7 +33,7 @@
               <input type="radio" name="select" value="Gasolina" id="option-1" checked />
               <label for="option-1" class="option option-1" onclick="undoValue()">
                 <div class="dot"></div>
-                <span class="gas-mr">Gasolina</span>
+                <span class="gas-ml">Gasolina</span>
               </label>
               <input type="radio" name="select" value="Etanol" id="option-2" />
               <label for="option-2" class="option option-2" onclick="undoValue()">
@@ -42,13 +42,13 @@
               </label>
             </div>
             <div class="inline">
-              <h3 class="h3-20mt">Valor<span> /L</span></h3>
-              <h3 class="h3-20mt ml-100">Quantidade<span> /L</span></h3>
+              <h3 class="h3-mtmb">Valor<span> /L</span></h3>
+              <h3 class="h3-mtmb ml-135">Quantidade<span> /L</span></h3>
             </div>
             <label for="priceLiter"></label>
             <input type="number" disabled id="valor-litro" name="valor" />
             <label for="amountLiters"></label>
-            <input type="number" id="quant-litros" placeholder="0" oninput="preview()" class="ml-45" name="quant" min="0" max="1000" />
+            <input type="number" id="quant-litros" placeholder="0" oninput="preview()" class="ml-50" name="quant" min="0" max="1000" />
             <input name="vendido" class="block confirma" type="submit" value="Confirmar" />
           </form>
         </div>
@@ -80,12 +80,12 @@
       <section class="section-3">
         <h2 class="">Resumo do dia</h2>
         <div class="cards inline">
-          <div class="card1 card-f">
+          <div class="card1 card-fat">
             <h3 class="mt-card">Faturamento</h3>
             <span class="span-card">R$ </span>
             <h4 class="main-color" id="faturamento">0</h4>
           </div>
-          <div class="card2 card-v">
+          <div class="card2 card-vol">
             <h3 class="mt-card">Volume</h3>
             <h4 class="main-color" id="volume">0</h4>
             <span class="span-card"> litros</span>

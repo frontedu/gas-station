@@ -2,7 +2,7 @@
 2nd JavaScript project for Instituto Federal do Triângulo Mineiro @ Brazil
 
 ## General infos
-* [📐 Usage – Changeable Values](#usage)
+* [📐 Usage – Changeable values](#usage)
 * [📃 Project proposal (pt-BR)](#project-proposal)
 * [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/)
 
