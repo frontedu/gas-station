@@ -13,7 +13,7 @@ let vol = {
 let profit = 0, volume = 0;
 
 ///VOLUME FIXO
-const gasFixed = vol.gas, ethFixed = vol.eth;
+const gasDefined = vol.gas, ethDefined = vol.eth;
 
 //QUANTIDADE REAL DA BOMBA
 const gasPump = document.getElementById("quant-gas");
@@ -70,8 +70,7 @@ submit.addEventListener("click", function (event) {
   paragraph(getp, linep);
 
   //RESETA INPUT QUANTIDADE/L E SUBMIT
-  form.quant.value = null;
-  preview();
+  undoValue();
 });
 
 ////////////////////////
@@ -126,38 +125,38 @@ function changePump(gasPump, ethPump) {
   ethPump.textContent = vol.eth;
 }
 
-//////////////////
-//COR QUANT. GAS//
-//////////////////
-function changeGasColor(gas) {
-  if (gas > gasFixed * 0.5)
-    document.querySelector("#quant-gas").style.color = "var(--green)";
-  else if (gas <= gasFixed * 0.5 && gas > gasFixed * 0.1)
-    document.querySelector("#quant-gas").style.color = "var(--orange)";
-  else if (gas <= gasFixed * 0.1 && gas > 0)
-    document.querySelector("#quant-gas").style.color = "var(--red)";
-  else if (gas == 0)
-    document.querySelector("#quant-gas").style.color = "var(--gray)";
-}
-
-//////////////////
-//COR QUANT. ETH//
-//////////////////
-function changeEthColor(eth) {
-  if (eth > ethFixed * 0.5)
-    document.querySelector("#quant-eta").style.color = "var(--green)";
-  else if (eth <= ethFixed * 0.5 && eth > ethFixed * 0.1)
-    document.querySelector("#quant-eta").style.color = "var(--orange)";
-  else if (eth <= ethFixed * 0.1 && eth > 0)
-    document.querySelector("#quant-eta").style.color = "var(--red)";
-  else if (eth == 0)
-    document.querySelector("#quant-eta").style.color = "var(--gray)";
-}
-
 /////////////////
 //RESETA INPUTS//
 /////////////////
 function undoValue() {
   form.quant.value = null;
   preview();
+}
+
+//////////////////
+//COR QUANT. GAS//
+//////////////////
+function changeGasColor(Vgas) {
+  if (Vgas > gasDefined * 0.5)
+    document.querySelector("#quant-gas").style.color = "var(--green)";
+  else if (Vgas <= gasDefined * 0.5 && Vgas > gasDefined * 0.1)
+    document.querySelector("#quant-gas").style.color = "var(--orange)";
+  else if (Vgas <= gasDefined * 0.1 && Vgas > 0)
+    document.querySelector("#quant-gas").style.color = "var(--red)";
+  else if (Vgas == 0)
+    document.querySelector("#quant-gas").style.color = "var(--gray)";
+}
+
+//////////////////
+//COR QUANT. ETH//
+//////////////////
+function changeEthColor(Veth) {
+  if (Veth > ethDefined * 0.5)
+    document.querySelector("#quant-eta").style.color = "var(--green)";
+  else if (Veth <= ethDefined * 0.5 && Veth > ethDefined * 0.1)
+    document.querySelector("#quant-eta").style.color = "var(--orange)";
+  else if (Veth <= ethDefined * 0.1 && Veth > 0)
+    document.querySelector("#quant-eta").style.color = "var(--red)";
+  else if (Veth == 0)
+    document.querySelector("#quant-eta").style.color = "var(--gray)";
 }
