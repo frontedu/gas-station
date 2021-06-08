@@ -1,12 +1,12 @@
 //VALORES MUTÁVEIS
 const price = {
-  gas: 5.89, //PREÇO GAS
-  eth: 3.99, //PREÇO ETA
+  gas: 5.89,
+  eth: 3.99,
 };
 
 let vol = {
-  gas: 1000, //VOLUME GAS
-  eth: 1000, //VOLUME ETA
+  gas: 1000,
+  eth: 1000,
 };
 
 ///FATURAMENTO E VOLUME INICIAL
@@ -38,8 +38,8 @@ submit.addEventListener("click", function (event) {
   event.preventDefault();
 
   //CALC TOTAL
-  let fuelType = form.select.value;
-  let Liters = ~~form.quant.value;
+  let fuelType = form.select.value,
+  Liters = ~~form.quant.value;
   if (Liters < 1) return;
   const total = fuelType == "Gasolina" ?
   price.gas * Liters : price.eth * Liters;
@@ -58,9 +58,9 @@ submit.addEventListener("click", function (event) {
   }
 
   //VOLUME E FATURAMENTO
-  const newBilling = document.getElementById("faturamento");
+  const recipes = document.getElementById("faturamento");
   profit += Number(total);
-  newBilling.textContent = profit.toFixed(2);
+  recipes.textContent = profit.toFixed(2);
 
   volume += Liters;
   const newVol = document.getElementById("volume");
@@ -68,13 +68,12 @@ submit.addEventListener("click", function (event) {
 
   //EXIBIR COMPRA EXECUTADA
   const getp = document.getElementById("purchases");
-  let linep =
-    fuelType + " — " + Liters + "L" + " — " + "R$ " + total.toFixed(2);
+  let linep = fuelType + " — " + Liters + "L"
+  + " — "+ "R$ " + total.toFixed(2);
   paragraph(getp, linep);
 
   //RESETA INPUT QUANTIDADE/L E SUBMIT
   undoValue();
-  
 });
 
 ////////////////////////
@@ -90,7 +89,8 @@ function preview() {
 
   if (input <= 0) submit.value = "Confirmar";
   else if (input > Vol) submit.value = "Indisponível";
-  else submit.value = "Confirmar" + " (R$ " + totalPreview.toFixed(2) + ")";
+  else submit.value = "Confirmar"
+  + " (R$ " + totalPreview.toFixed(2) + ")";
 }
 
 //////////////////////////
@@ -135,7 +135,8 @@ function changePump(gasPump, ethPump) {
 /////////////////
 undoValue(); function undoValue() {
   form.quant.value = null;
-  vol.gas > vol.eth ? form.quant.max = vol.gas : form.quant.max = vol.eth
+  vol.gas > vol.eth ? form.quant.max = vol.gas
+  : form.quant.max = vol.eth
   preview();
 }
 
@@ -144,13 +145,17 @@ undoValue(); function undoValue() {
 //////////////////
 function changeGasColor(Vgas) {
   if (Vgas > gasDefined * 0.5)
-    document.querySelector("#quant-gas").style.color = "var(--green)";
+    document.querySelector("#quant-gas").style.color
+    = "var(--green)";
   else if (Vgas <= gasDefined * 0.5 && Vgas > gasDefined * 0.1)
-    document.querySelector("#quant-gas").style.color = "var(--orange)";
+    document.querySelector("#quant-gas").style.color
+    = "var(--orange)";
   else if (Vgas <= gasDefined * 0.1 && Vgas > 0)
-    document.querySelector("#quant-gas").style.color = "var(--red)";
+    document.querySelector("#quant-gas").style.color
+    = "var(--red)";
   else if (Vgas == 0)
-    document.querySelector("#quant-gas").style.color = "var(--gray)";
+    document.querySelector("#quant-gas").style.color
+    = "var(--gray)";
 }
 
 //////////////////
@@ -158,11 +163,15 @@ function changeGasColor(Vgas) {
 //////////////////
 function changeEthColor(Veth) {
   if (Veth > ethDefined * 0.5)
-    document.querySelector("#quant-eta").style.color = "var(--green)";
+    document.querySelector("#quant-eta").style.color
+    = "var(--green)";
   else if (Veth <= ethDefined * 0.5 && Veth > ethDefined * 0.1)
-    document.querySelector("#quant-eta").style.color = "var(--orange)";
+    document.querySelector("#quant-eta").style.color
+    = "var(--orange)";
   else if (Veth <= ethDefined * 0.1 && Veth > 0)
-    document.querySelector("#quant-eta").style.color = "var(--red)";
+    document.querySelector("#quant-eta").style.color
+    = "var(--red)";
   else if (Veth == 0)
-    document.querySelector("#quant-eta").style.color = "var(--gray)";
+    document.querySelector("#quant-eta").style.color
+    = "var(--gray)";
 }

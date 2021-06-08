@@ -85,9 +85,7 @@ span {
 }
 
 h2 span{
-  vertical-align: middle;
   font-size: 20px;
-  margin-left: 8px;
   border-radius: 50px;
   background-color: var(--darkblack);
   padding: 6px 12px;
@@ -393,8 +391,6 @@ input[type="radio"] {
   }
 }
 
-
-/* RESOLUÇÃO DINÂMICA MOBILE (100VW) */
 @media screen and (max-width: 1140px) {
   main {
     margin-left: 0;
@@ -421,7 +417,7 @@ input[type="radio"] {
   }
 
   p {
-    width: 100%;
+    width: 94vw;
     margin: 10px 0 5px 4%;
   }
 
@@ -443,10 +439,9 @@ input[type="radio"] {
   .section-2{
     margin-bottom: 0;
   }
-  
+
   .add-card {
-    width:100vw;
-    height: 100%;
+    width:430px;
   }
 
   .card-mobile{
@@ -475,7 +470,6 @@ input[type="radio"] {
   }
 
   .historico {
-    margin-right: 1vw;
     margin-bottom: 50px;
   }
 
@@ -494,8 +488,11 @@ input[type="radio"] {
   }
 }
 
-@media screen and (min-width: 430px) {
+
+/* RESOLUÇÃO DINÂMICA MOBILE (100VW) */
+@media screen and (max-width: 450px) {
   .add-card {
-    width:500px;
+    width:100vw;
+    height: 100%;
   }
 }
