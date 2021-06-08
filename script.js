@@ -25,6 +25,9 @@ const checked = document.getElementById("valor-litro");
 checked.value = price.gas;
 selectFuel();
 
+//QUANTIDADE DE VENDAS
+const traded = document.getElementById("num-vendas");
+
 //GET SUBMIT CLICK (PARA O EVENT LISTENER)
 const submit = form.vendido;
 
@@ -71,6 +74,7 @@ submit.addEventListener("click", function (event) {
 
   //RESETA INPUT QUANTIDADE/L E SUBMIT
   undoValue();
+  
 });
 
 ////////////////////////
@@ -100,6 +104,7 @@ function paragraph(getp, linep) {
     newp.innerText = linep;
     getp.prepend(newp);
   }
+  traded.textContent++;
 }
 
 ///////////////////
@@ -128,8 +133,9 @@ function changePump(gasPump, ethPump) {
 /////////////////
 //RESETA INPUTS//
 /////////////////
-function undoValue() {
+undoValue(); function undoValue() {
   form.quant.value = null;
+  vol.gas > vol.eth ? form.quant.max = vol.gas : form.quant.max = vol.eth
   preview();
 }
 

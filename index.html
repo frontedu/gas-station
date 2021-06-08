@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UT-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <title>Auto Posto LSW ΙΙ</title>
-  <link rel="shortcut icon" href="icon.webp" />
+  <link rel="shortcut icon" href="favicon.webp" />
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="author" href="https://frontedu.me" />
 </head>
@@ -26,8 +26,7 @@
       <!-- MAIN TOP -->
       <section class="section-1">
         <h2>Nova venda</h2>
-        <div class="add-card">
-          <form id="form">
+          <form class="add-card" id="form">
             <h3>Combustível</h3>
             <div class="wrapper">
               <input type="radio" name="select" value="Gasolina" id="option-1" checked />
@@ -41,17 +40,18 @@
                 <span>Etanol</span>
               </label>
             </div>
-            <div class="inline">
-              <h3 class="h3-mtmb">Valor<span> /L</span></h3>
-              <h3 class="h3-mtmb ml-135">Quantidade<span> /L</span></h3>
+            <div class="fields inline">
+              <label for="valor-litro">
+                <h3>Valor<span> /L</span></h3>
+                <input type="number" disabled id="valor-litro" name="preco" />
+              </label>
+              <label for="quant-litros">
+                <h3>Quantidade<span> /L</span></h3>
+                <input type="number" id="quant-litros" placeholder="0" oninput="preview()" class="" name="quant" min="0" />
+              </label>
             </div>
-            <label for="priceLiter"></label>
-            <input type="number" disabled id="valor-litro" name="valor" />
-            <label for="amountLiters"></label>
-            <input type="number" id="quant-litros" placeholder="0" oninput="preview()" class="ml-50" name="quant" min="0" max="1000" />
             <input name="vendido" class="block confirma" type="submit" value="Confirmar" />
           </form>
-        </div>
       </section>
 
       <!-- MAIN BOTTOM -->
@@ -79,7 +79,7 @@
       <!-- SIDEBAR TOP -->
       <section class="section-3">
         <h2 class="">Resumo do dia</h2>
-        <div class="cards inline">
+        <div class="cards card-mobile inline">
           <div class="card1 card-fat">
             <h3 class="mt-card">Faturamento</h3>
             <span class="span-card">R$ </span>
@@ -90,11 +90,14 @@
             <h4 class="main-color" id="volume">0</h4>
             <span class="span-card"> litros</span>
           </div>
+        </div>
       </section>
 
       <!-- SIDEBAR BOTTOM -->
       <section class="section-4">
-        <h2 class="lastAdd">Últimas vendas</h2>
+        <h2>Últimas vendas
+          <span id="num-vendas">0</span>
+        </h2>
         <div id="purchases" class="historico">
           <p>Nenhuma venda efetuada.</p>
         </div>
