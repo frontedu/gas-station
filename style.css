@@ -391,6 +391,7 @@ input[type="radio"] {
   }
 }
 
+/* RESOLUÇÃO DINÂMICA MOBILE (100VW) */
 @media screen and (max-width: 1140px) {
   main {
     margin-left: 0;
@@ -488,8 +489,6 @@ input[type="radio"] {
   }
 }
 
-
-/* RESOLUÇÃO DINÂMICA MOBILE (100VW) */
 @media screen and (max-width: 450px) {
   .add-card {
     width:100vw;

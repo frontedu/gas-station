@@ -97,7 +97,7 @@ function preview() {
 //ADICIONA INFO DA VENDA//
 //////////////////////////
 function paragraph(getp, linep) {
-  if (/\.$/.test(getp.lastElementChild.textContent) == true)
+  if (traded.textContent == 0)
     getp.lastElementChild.textContent = linep;
   else {
     const newp = document.createElement("p");

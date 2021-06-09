@@ -2,19 +2,19 @@
 2nd JavaScript project for Instituto Federal do Triângulo Mineiro @ Brazil
 
 ## General infos
-* [📐 Usage – Changeable values](#usage)
+* [📐 Usage](#Usage)
 * [📃 Project proposal (pt-BR)](#project-proposal)
 * [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/)
 
 ## Usage
-The values that should be replaced as you demand are:
+The values can be replaced as you wish:
 
 Fuel Type | Price (R$) | Volume (L)
 --------- | ---------- | ----------
 Gasoline  | 5.89       | 1000
 Ethanol   | 3.99       | 1000
 
-as you can see in:
+as you can see in ```script.js``` file:
 ```javascript
 const price = {
   gas: 5.89,
@@ -25,6 +25,24 @@ let vol = {
   gas: 1000,
   eth: 1000,
 };
+```
+
+You can also change the colors in the ```style.css``` file:
+```css
+:root {
+  --main: #adff00;
+  --bg: #000;
+  --light: #f2f2f7;
+  --dark: #2e2e2e;
+  --darkblack: #191919;
+  --black: #121212;
+  --green: #adff00;
+  --orange: #ff9500;
+  --red: #ff3b30;
+  --gray: #c7c7cc;
+  --darkblue: rgba(0, 240, 255, 0.1);
+  --darkyellow: rgba(255, 245, 0, 0.1);
+}
 ```
 
 ## Project proposal
