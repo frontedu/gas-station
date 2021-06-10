@@ -27,7 +27,7 @@ let vol = {
 };
 ```
 
-ou can also easily change the default colors in the ```style.css``` file:
+You can also easily change the default colors in the ```style.css``` file:
 ```css
 :root {
   --main: #adff00;
