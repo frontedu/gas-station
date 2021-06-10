@@ -1,13 +1,13 @@
 # Filling station LSW II
-2nd JavaScript project for Instituto Federal do Triângulo Mineiro @ Brazil
+2nd JavaScript project for Instituto Federal do Triângulo Mineiro.
 
 ## General infos
-* [📐 Usage](#Usage)
+* [📐 Usage/Customizing](#Usage)
 * [📃 Project proposal (pt-BR)](#project-proposal)
 * [✒️ See the prototype on Figma](https://www.figma.com/file/zKg0S3bWPGTMGzunwCxTRb/)
 
 ## Usage
-The values can be replaced as you wish:
+These are the values that can be changed at any time as you need them:
 
 Fuel Type | Price (R$) | Volume (L)
 --------- | ---------- | ----------
@@ -27,7 +27,7 @@ let vol = {
 };
 ```
 
-You can also change the colors in the ```style.css``` file:
+ou can also easily change the default colors in the ```style.css``` file:
 ```css
 :root {
   --main: #adff00;
