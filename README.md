@@ -1,5 +1,5 @@
 # Filling station LSW II
-2nd JavaScript project for Instituto Federal do Triângulo Mineiro with the proposal of being a system for supplying vehicles.
+2nd JavaScript project for Instituto Federal do Triângulo Mineiro with the proposal of being a system for fueling vehicles.
 
 ## General infos
 * 📐 [Customizing](#Customizing)
